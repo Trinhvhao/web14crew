@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Arima:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Oswald", "Anton", sans-serif;
+  --font-display: "Anton", "Antonio", "Oswald", sans-serif;
+  --font-serif: "Arima", serif;
   --color-brand-red: #8B1E19;
   --color-brand-yellow: #F2C94C;
   --color-brand-blue: #2F80ED;
@@ -16,4 +17,29 @@
 
 .clip-text-hero {
   /* Using standard text stroke for the outline effect if needed, but the original seems solid with a slight shadow or glow */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
