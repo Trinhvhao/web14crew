@@ -1,4 +1,5 @@
 import React from 'react';
+import FadeIn from './FadeIn';
 import { ArrowDown, Play } from 'lucide-react';
 
 export default function SixthSection() {
@@ -12,7 +13,7 @@ export default function SixthSection() {
   ];
 
   return (
-    <section className="relative flex flex-col pt-8 pb-3 px-8 z-10 w-full bg-[#f4efe6] text-black h-screen font-sans overflow-hidden">
+    <section className="relative flex flex-col pt-8 pb-3 px-8 z-10 w-full bg-[#f4efe6] text-black h-screen font-sans overflow-hidden shrink-0  ">
       
       {/* Absolute "04" */}
       <div className="absolute top-8 right-12 text-[#791220] text-3xl font-display font-medium">
@@ -30,7 +31,7 @@ export default function SixthSection() {
 
       <div className="max-w-[1440px] mx-auto w-full px-24 flex flex-col h-full">
         {/* Header */}
-        <div className="flex justify-between items-end mb-4 flex-shrink-0">
+        <FadeIn direction="down" delay={0.1} className="flex justify-between items-end mb-4 flex-shrink-0">
           {/* Left Title */}
           <div className="flex items-end gap-1">
             <h2 className="text-[3.5rem] font-display font-normal text-[#791220] uppercase tracking-tighter leading-[0.75] transform scale-y-[1.3] scale-x-95 origin-bottom mr-1">
@@ -55,10 +56,10 @@ export default function SixthSection() {
             <span className="font-normal text-[1.8rem] opacity-90">TÊN DỰ ÁN</span>
             <span className="font-bold text-[2.2rem]">THÔNG ĐIỆP BRAND</span>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Main Video/Image */}
-        <div className="relative w-full shadow-lg bg-white p-2 pb-0 flex-1 min-h-0">
+        <FadeIn direction="up" delay={0.3} className="relative w-full shadow-lg bg-white p-2 pb-0 flex-1 min-h-0">
           <img 
             src="https://images.unsplash.com/photo-1517816743773-6e0fd5ce925c?auto=format&fit=crop&q=80&w=1600&h=600" 
             alt="Main Feature" 
@@ -69,10 +70,10 @@ export default function SixthSection() {
               1
             </span>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Thumbnails row */}
-        <div className="mt-8 overflow-hidden w-full pb-2 flex-shrink-0 h-[120px]">
+        <FadeIn direction="left" delay={0.5} className="mt-8 overflow-hidden w-full pb-2 flex-shrink-0 h-[120px]">
           <div className="animate-marquee gap-5 h-full">
             {[...thumbnails, ...thumbnails].map((t, idx) => (
               <div key={`${t.id}-${idx}`} className="relative w-[220px] h-full flex-shrink-0 group cursor-pointer overflow-hidden bg-gray-900 border border-transparent hover:border-brand-yellow transition-all">
@@ -86,24 +87,23 @@ export default function SixthSection() {
                     {t.id}
                   </span>
                 </div>
-
                 <div className="absolute bottom-2 left-0 w-full text-center text-[#f4efe6] font-display text-[1.2rem] font-bold tracking-wider z-10 leading-tight uppercase px-4 drop-shadow-md">
                   {t.name}
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </FadeIn>
 
         {/* Action Button */}
-        <div className="flex justify-center mt-4 flex-shrink-0">
+        <FadeIn direction="up" delay={0.7} className="flex justify-center mt-4 flex-shrink-0">
           <button className="flex items-center gap-2 border-[1px] border-black/80 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">
             <div className="w-4 h-4 rounded-full bg-[#e74c3c] flex items-center justify-center">
               <Play size={8} className="fill-current text-white ml-[1px]" />
             </div>
             WATCH ALL ON YOUTUBE
           </button>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

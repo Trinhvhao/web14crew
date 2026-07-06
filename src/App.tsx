@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Lenis from 'lenis';
 import { Play, Facebook, Youtube, MessageCircle, Video, ArrowDown } from 'lucide-react';
+import { motion } from 'motion/react';
+import FadeIn from './components/FadeIn';
 import SecondSection from './components/SecondSection';
 import ThirdSection from './components/ThirdSection';
 import FourthSection from './components/FourthSection';
@@ -11,8 +14,32 @@ import NinthSection from './components/NinthSection';
 import TenthSection from './components/TenthSection';
 
 export default function App() {
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      touchMultiplier: 2,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
-    <div className="noise-bg text-[#fef5e4] font-sans relative selection:bg-brand-yellow selection:text-brand-red min-h-screen">
+    <>
+        <div className="noise-bg text-[#fef5e4] font-sans relative selection:bg-brand-yellow selection:text-brand-red min-h-screen w-full overflow-x-hidden">
       
       {/* Background Floral Overlay Placeholder - Now fixed to cover the whole background */}
       <div 
@@ -23,12 +50,12 @@ export default function App() {
         }}
       />
 
-      <section className="h-screen relative overflow-hidden flex flex-col z-10">
+      <section className="h-screen relative overflow-hidden flex flex-col z-10 shrink-0 snap-start ">
         {/* Main Content Wrapper */}
         <div className="max-w-[1440px] mx-auto px-8 pt-2 pb-6 relative z-10 flex flex-col h-full w-full">
         
         {/* Header */}
-        <header className="flex justify-between items-start mb-0">
+        <FadeIn delay={0.1} direction="down" className="flex justify-between items-start mb-0">
           {/* Logo */}
           <div className="w-1/4">
             <a href="#social" className="inline-block hover:text-brand-yellow transition-colors">
@@ -70,33 +97,55 @@ export default function App() {
               Bấm dô là ra link dẫn vào social
             </p>
           </div>
-        </header>
+        </FadeIn>
 
         {/* Hero Section */}
         <main className="flex-grow flex flex-col justify-center relative mt-0 mb-8">
           
           {/* Blue Scribble SVG Placeholder */}
-          <div className="absolute top-1/2 left-0 -translate-y-[120%] -translate-x-4 w-[550px] h-[150px] pointer-events-none z-0">
+          <motion.div 
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+            className="absolute top-1/2 left-0 -translate-y-[120%] -translate-x-4 w-[550px] h-[150px] pointer-events-none z-0"
+          >
             <svg viewBox="0 0 500 150" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full stroke-brand-blue overflow-visible" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M -30 183 L 155 25 Q 160 15 150 35 L 120 105 Q 115 120 130 110 L 235 45 Q 240 35 230 55 L 215 85 Q 210 95 225 90 L 295 60 Q 300 50 290 65 L 280 80 Q 275 90 290 85 Q 380 70 480 40" />
+              <motion.path 
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+                d="M -30 183 L 155 25 Q 160 15 150 35 L 120 105 Q 115 120 130 110 L 235 45 Q 240 35 230 55 L 215 85 Q 210 95 225 90 L 295 60 Q 300 50 290 65 L 280 80 Q 275 90 290 85 Q 380 70 480 40" 
+              />
             </svg>
-          </div>
+          </motion.div>
 
           <div className="relative z-10">
-            <h2 className="font-display font-normal uppercase text-[7.5rem] leading-[0.95] tracking-tight drop-shadow-lg text-[#fef5e4]">
-              <span className="block">Inspiration</span>
-              <span className="block">Oriented</span>
-            </h2>
+            <FadeIn delay={0.2} direction="left">
+              <h2 className="font-display font-normal uppercase text-[7.5rem] leading-[0.95] tracking-tight drop-shadow-lg text-[#fef5e4]">
+                <span className="block">Inspiration</span>
+                <span className="block">Oriented</span>
+              </h2>
+            </FadeIn>
             
             <div className="mt-2 relative w-fit pl-[120px] pt-4 pb-2">
               {/* Yellow Decorative Line */}
-              <svg 
+              <motion.svg 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.5, delay: 0.6 }}
                 className="absolute top-0 left-0 w-[580px] h-[170px] overflow-visible pointer-events-none" 
                 fill="none" 
                 viewBox="0 0 580 170"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path 
+                <motion.path 
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 1, ease: "easeInOut", delay: 0.7 }}
                   d="M 10 10 L 80 10 Q 100 10 100 30 L 100 70 Q 100 90 120 90 L 520 90 Q 540 90 540 110 L 540 125" 
                   stroke="#F2C94C" 
                   strokeWidth="2.5" 
@@ -108,12 +157,12 @@ export default function App() {
                 <circle cx="522" cy="80.5" r="6" fill="#FFC312" />
                 <circle cx="538" cy="86" r="6" fill="#F79F1F" />
                 <circle cx="548" cy="100" r="6" fill="#EA2027" />
-              </svg>
+              </motion.svg>
               
-              <div className="relative z-10 w-[580px]">
+              <FadeIn delay={0.4} direction="up" className="relative z-10 w-[580px]">
                 <p className="text-[15px] uppercase font-medium leading-[1.6] text-[#fef5e4] text-left tracking-tight font-serif pb-1">
                   BEYOND PRODUCTION, WE CRAFT HIGH-QUALITY TVCS,<br />
-                  CROPORATION AND BRANDED CONTENT WHILE STRICTLY<br />
+                  CORPORATION AND BRANDED CONTENT WHILE STRICTLY<br />
                   HONORING YOUR TIMELINE AND BUDGET.
                 </p>
                 
@@ -125,20 +174,20 @@ export default function App() {
                     WATCH OUTR SHOWREEL
                   </span>
                 </button>
-              </div>
+              </FadeIn>
             </div>
           </div>
 
           {/* Right side ghost text */}
-          <div className="absolute right-32 top-1/2 -translate-y-1/2">
+          <FadeIn delay={0.6} direction="right" className="absolute right-32 top-1/2 -translate-y-1/2">
             <p className="text-sm font-bold uppercase tracking-widest opacity-80">
               Nền là clip showreel
             </p>
-          </div>
+          </FadeIn>
         </main>
 
         {/* Footer / Trusted By */}
-        <footer className="mt-auto flex flex-col items-center pb-4">
+        <FadeIn delay={0.5} direction="up" className="mt-auto flex flex-col items-center pb-4">
           <div className="w-full flex justify-center items-center mb-4 relative">
              <h3 className="text-xl font-display font-bold uppercase tracking-widest absolute -top-8">Logo đối tác</h3>
           </div>
@@ -160,18 +209,18 @@ export default function App() {
               ))}
             </div>
           </div>
-        </footer>
+        </FadeIn>
 
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute left-8 bottom-24 flex flex-col items-center gap-[6px] z-10">
+      <FadeIn delay={1} direction="none" className="absolute left-8 bottom-24 flex flex-col items-center gap-[6px] z-10">
         <span className="text-[13px] font-bold uppercase tracking-[0.15em] font-sans text-[#F2C94C] mb-[8px]" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
           SCROLL
         </span>
         <div className="w-[2px] h-[60px] bg-[#F2C94C]"></div>
         <ArrowDown size={16} className="text-[#F2C94C] stroke-[3] -mt-[2px]" />
-      </div>
+      </FadeIn>
       </section>
 
       {/* Second Section */}
@@ -201,5 +250,6 @@ export default function App() {
       {/* Tenth Section */}
       <TenthSection />
     </div>
+    </>
   );
 }

@@ -34,12 +34,14 @@
   animation-play-state: paused;
 }
 
+
+
 html {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
 }
 
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
+

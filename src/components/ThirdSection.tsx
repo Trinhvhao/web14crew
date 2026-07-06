@@ -1,4 +1,6 @@
 import React from 'react';
+import FadeIn from './FadeIn';
+import TextReveal from './TextReveal';
 import { ArrowDown } from 'lucide-react';
 
 export default function ThirdSection() {
@@ -15,7 +17,7 @@ export default function ThirdSection() {
   ];
 
   return (
-    <section className="relative flex flex-col pt-8 pb-3 px-8 z-10 w-full bg-[#f4efe6] text-black h-screen font-sans overflow-hidden">
+    <section className="relative flex flex-col pt-8 pb-3 px-8 z-10 w-full bg-[#f4efe6] text-black h-screen font-sans overflow-hidden shrink-0  ">
       
       {/* Absolute "02-A" */}
       <div className="absolute top-8 right-12 text-[#791220] text-3xl font-display font-medium">
@@ -35,18 +37,18 @@ export default function ThirdSection() {
 
       <div className="max-w-[1440px] mx-auto w-full px-24 flex flex-col h-full">
         {/* Header */}
-        <div className="flex justify-center items-center mb-6 mt-2 flex-shrink-0 relative">
+        <FadeIn direction="down" delay={0.1} className="flex justify-center items-center mb-6 mt-2 flex-shrink-0 relative">
           <div className="w-5 h-5 rounded-full bg-[#00bcd4] absolute left-[22%] translate-x-12"></div>
           <h2 className="text-[5.5rem] font-display font-normal text-[#791220] uppercase tracking-tighter leading-[0.75] transform scale-y-[1.3] scale-x-95 origin-bottom relative z-10 text-center mr-8">
             SKILL & EXPERTISE
           </h2>
-        </div>
+        </FadeIn>
 
         {/* 3 Columns Layout */}
         <div className="flex w-full flex-grow gap-8 mt-4 overflow-hidden mb-8">
           
           {/* Left Column */}
-          <div className="flex flex-col w-[25%] h-full">
+          <FadeIn direction="right" delay={0.3} className="flex flex-col w-[25%] h-full">
             <div className="w-full flex-grow bg-[#d31c36] p-5 flex flex-col relative overflow-hidden group shadow-md">
               <h3 className="text-white font-sans font-bold text-2xl uppercase tracking-tighter relative z-10 leading-none">KHUNG DỌC<br/>9/16</h3>
               <div className="absolute top-16 -left-8 -right-8 -bottom-16 flex items-start justify-center rotate-[-12deg] origin-top-left transition-transform duration-500 group-hover:rotate-0">
@@ -54,11 +56,10 @@ export default function ThirdSection() {
               </div>
             </div>
             <h3 className="text-[#791220] font-sans font-bold text-2xl uppercase tracking-tighter mt-2">BREAKDOWN VFX</h3>
-          </div>
+          </FadeIn>
 
           {/* Center Column */}
-          <div className="flex flex-col w-[50%] h-full items-center justify-start relative">
-
+          <FadeIn direction="up" delay={0.4} className="flex flex-col w-[50%] h-full items-center justify-start relative">
             <h3 className="text-[#791220] font-sans font-bold text-[1.8rem] uppercase tracking-tighter mb-4 mt-[-10px]">TÊN CLIP</h3>
             <div className="w-full aspect-[21/9] bg-gray-900 overflow-hidden relative shadow-lg mb-6 group cursor-pointer">
                <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100" alt="Main Clip" />
@@ -109,10 +110,10 @@ export default function ThirdSection() {
             <svg className="absolute top-10 left-[-40%] w-[180%] h-[120%] pointer-events-none opacity-60 z-20" fill="none" viewBox="0 0 1000 500">
                <path d="M 150 150 Q 500 0 850 350" stroke="#F2C94C" strokeWidth="2" fill="none" strokeDasharray="5,5" />
             </svg>
-          </div>
+          </FadeIn>
 
           {/* Right Column */}
-          <div className="flex flex-col w-[25%] h-full">
+          <FadeIn direction="left" delay={0.3} className="flex flex-col w-[25%] h-full">
             <h3 className="text-[#791220] font-sans font-bold text-2xl uppercase tracking-tighter mb-2 text-left">BREAKDOWN VFX</h3>
             <div className="w-full flex-grow bg-[#d31c36] p-5 flex flex-col justify-end relative overflow-hidden group shadow-md">
               <div className="absolute top-16 -left-4 -right-16 bottom-16 flex items-center justify-center rotate-[15deg] origin-bottom-right transition-transform duration-500 group-hover:rotate-0">
@@ -120,8 +121,7 @@ export default function ThirdSection() {
               </div>
               <h3 className="text-white font-sans font-bold text-2xl uppercase tracking-tighter relative z-10 leading-none text-left">KHUNG DỌC<br/>9/16</h3>
             </div>
-          </div>
-
+          </FadeIn>
         </div>
 
       </div>

@@ -1,7 +1,14 @@
 import React from 'react';
+import ParallaxImage from './ParallaxImage';
+import FadeIn from './FadeIn';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef } from 'react';
 import { ArrowDown, MonitorPlay, Volume2, Camera, Radio, MessageSquare, Users } from 'lucide-react';
 
 export default function EighthSection() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const services = [
     { icon: <MonitorPlay size={20} className="mb-2 stroke-[1.5]" />, title: 'TVC & PHIM QUẢNG CÁO' },
     { icon: <Volume2 size={20} className="mb-2 stroke-[1.5]" />, title: 'COMMERCIAL VIDEO' },
@@ -30,7 +37,7 @@ export default function EighthSection() {
   ];
 
   return (
-    <section className="relative flex flex-col pt-12 pb-8 px-8 z-10 w-full bg-[#791220] text-[#f4efe6] h-screen font-sans overflow-hidden">
+    <section ref={ref} className="relative flex flex-col pt-12 pb-8 px-8 z-10 w-full bg-[#791220] text-[#f4efe6] h-screen font-sans overflow-hidden shrink-0  ">
       
       {/* Background Watermark Image */}
       <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none flex items-center justify-center">
@@ -38,9 +45,7 @@ export default function EighthSection() {
       </div>
 
       {/* Flower Background Image - specific to this section */}
-      <div className="absolute inset-y-0 right-0 z-0 w-2/3 opacity-30 pointer-events-none flex items-end justify-center mix-blend-screen">
-         <img src="https://images.unsplash.com/photo-1546851172-e1c72635bc32?auto=format&fit=crop&q=80&w=1200&h=1200" alt="White Flower" className="w-[800px] h-[800px] object-contain translate-y-32 translate-x-12" style={{ filter: 'grayscale(100%) contrast(1.2) brightness(1.5)' }} />
-      </div>
+      <ParallaxImage src="https://images.unsplash.com/photo-1546851172-e1c72635bc32?auto=format&fit=crop&q=80&w=1200&h=1200" alt="White Flower" className="w-[800px] h-[800px] object-contain translate-y-32 translate-x-12" style={{ filter: 'grayscale(100%) contrast(1.2) brightness(1.5)' }} offset={150} />
 
       {/* Absolute "05" */}
       <div className="absolute top-8 right-12 text-[#f4efe6] text-3xl font-display font-medium z-10">
@@ -59,12 +64,14 @@ export default function EighthSection() {
       <div className="max-w-[1440px] mx-auto w-full px-24 flex flex-col h-full z-10">
         
         {/* Large Title */}
-        <h1 className="text-[6rem] font-display font-normal uppercase tracking-tighter leading-[0.8] transform scale-y-[1.3] scale-x-[0.95] origin-left mb-12 text-[#f4efe6]">
+        <FadeIn direction="down" delay={0.2}>
+        <motion.h1 style={{ y }} className="text-[6rem] font-display font-normal uppercase tracking-tighter leading-[0.8] transform scale-y-[1.3] scale-x-[0.95] origin-left mb-12 text-[#f4efe6]">
           ALL-IN FOR PRODUCTION
-        </h1>
+        </motion.h1>
+        </FadeIn>
 
         {/* Services Grid */}
-        <div className="flex flex-col gap-3 mb-auto">
+        <FadeIn direction="left" delay={0.4} className="flex flex-col gap-3 mb-auto">
           {/* Top Row */}
           <div className="flex gap-3">
             {services.map((svc, idx) => (
@@ -89,10 +96,10 @@ export default function EighthSection() {
               </div>
             ))}
           </div>
-        </div>
+        </FadeIn>
 
         {/* Stats Section */}
-        <div className="flex justify-between items-center px-12 mb-16 mt-8 w-full relative z-10">
+        <FadeIn direction="up" delay={0.6} className="flex justify-between items-center px-12 mb-16 mt-8 w-full relative z-10">
           {stats.map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center">
               <span className="text-[6rem] font-display font-normal leading-[0.7] text-[#f4efe6] tracking-tighter transform scale-y-[1.2] drop-shadow-lg mb-2">
@@ -103,10 +110,10 @@ export default function EighthSection() {
               </span>
             </div>
           ))}
-        </div>
+        </FadeIn>
 
         {/* Footer Info */}
-        <div className="flex justify-between items-end pb-4 font-sans font-medium text-[1.1rem] tracking-wide text-[#f4efe6]">
+        <FadeIn direction="up" delay={0.8} className="flex justify-between items-end pb-4 font-sans font-medium text-[1.1rem] tracking-wide text-[#f4efe6]">
           <div className="flex flex-col">
             <span>MEDIA14CREW@GMAIL.COM</span>
             <span>+123-456-7890</span>
@@ -114,7 +121,7 @@ export default function EighthSection() {
           <div className="text-[1.3rem] tracking-wider mb-2 pr-32">
             WWW.MEDIA14CREW.COM
           </div>
-        </div>
+        </FadeIn>
 
       </div>
     </section>

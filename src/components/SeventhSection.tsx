@@ -1,7 +1,13 @@
 import React from 'react';
+import FadeIn from './FadeIn';
 import { ArrowDown } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef } from 'react';
 
 export default function SeventhSection() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const gridThumbnails = [
     { id: 2, img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400&h=250' },
     { id: 3, img: 'https://images.unsplash.com/photo-1565610222536-ce1258bbf089?auto=format&fit=crop&q=80&w=400&h=250' },
@@ -21,7 +27,7 @@ export default function SeventhSection() {
   ];
 
   return (
-    <section className="relative flex flex-col pt-8 pb-3 px-8 z-10 w-full bg-[#791220] text-[#f4efe6] h-screen font-sans overflow-hidden">
+    <section ref={ref} className="relative flex flex-col pt-8 pb-3 px-8 z-10 w-full bg-[#791220] text-[#f4efe6] h-screen font-sans overflow-hidden shrink-0  ">
       
       {/* Absolute "04-A" */}
       <div className="absolute top-8 right-12 text-[#f4efe6] text-3xl font-display font-medium">
@@ -40,7 +46,7 @@ export default function SeventhSection() {
       <div className="max-w-[1440px] mx-auto w-full px-24 flex h-full gap-12 pt-8">
         
         {/* Left Column */}
-        <div className="w-[35%] flex flex-col h-full shrink-0">
+        <FadeIn direction="right" delay={0.3} className="w-[35%] flex flex-col h-full shrink-0">
           <h2 className="text-[2rem] font-bold uppercase tracking-tight border-b-[3px] border-[#f4efe6] inline-block pb-1 mb-4 w-fit leading-none whitespace-nowrap">
             PRODUCED BY 14CREW
           </h2>
@@ -48,9 +54,9 @@ export default function SeventhSection() {
             Thông tin crew : Sản xuất bao nhiêu ngày, thiết bị gì, những kỹ xảo nào...
           </p>
           
-          <h1 className="text-[2.8rem] font-display font-normal uppercase tracking-tighter leading-[0.8] transform scale-y-[1.3] scale-x-[0.95] origin-left mb-auto mt-2 whitespace-nowrap">
+          <motion.h1 style={{ y }} className="text-[3.5rem] font-display font-normal uppercase tracking-tighter leading-[0.8] transform scale-y-[1.3] scale-x-[0.95] origin-left mb-auto mt-2 whitespace-nowrap">
             PROJECT BRAND
-          </h1>
+          </motion.h1>
 
           {/* Grid 3x3 */}
           <div className="grid grid-cols-3 gap-3 w-full mb-16 relative mt-16">
@@ -74,10 +80,10 @@ export default function SeventhSection() {
               </div>
             ))}
           </div>
-        </div>
+        </FadeIn>
 
         {/* Right Column */}
-        <div className="w-[65%] flex flex-col h-full border-l-[1px] border-[#f4efe6]/30 pl-12 py-2">
+        <FadeIn direction="left" delay={0.3} className="w-[65%] flex flex-col h-full border-l-[1px] border-[#f4efe6]/30 pl-12 py-2">
           
           {/* 3 small images row */}
           <div className="flex justify-center gap-6 mb-6">
@@ -89,7 +95,7 @@ export default function SeventhSection() {
           </div>
 
           {/* Main Clip */}
-          <div className="w-full aspect-[21/9] bg-gray-900 relative mb-8 shadow-2xl overflow-hidden border-[1px] border-white/10 group cursor-pointer z-10">
+          <div data-cursor-text="PLAY" className="w-full aspect-[21/9] bg-gray-900 relative mb-8 shadow-2xl overflow-hidden border-[1px] border-white/10 group cursor-pointer z-10">
              <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=1200&h=500" className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" alt="Main" />
              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <span className="text-[6rem] font-display font-bold text-[#ff9f43] drop-shadow-[3px_3px_0px_#f1c40f] leading-none opacity-90">
@@ -108,7 +114,7 @@ export default function SeventhSection() {
             </div>
             
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );
