@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Lenis from 'lenis';
-import { Play, Facebook, Youtube, MessageCircle, Video, ArrowDown } from 'lucide-react';
+import { Play, ArrowDown } from 'lucide-react';
 import { motion } from 'motion/react';
 import FadeIn from './components/FadeIn';
 import SecondSection from './components/SecondSection';
@@ -80,22 +80,19 @@ export default function App() {
           {/* Socials */}
           <div className="w-1/4 flex flex-col items-end">
             <div className="flex gap-2 mb-1.5">
-              <a href="#" className="w-8 h-8 bg-[#00adef] rounded flex items-center justify-center hover:opacity-90 transition-opacity">
-                <Video size={16} className="text-[#fef5e4] fill-current" />
+              <a href="#" className="w-8 h-8 bg-[#1ab7ea] rounded flex items-center justify-center hover:opacity-90 transition-opacity overflow-hidden p-1.5">
+                <img src="/icons/vimeo.png" alt="Vimeo" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-8 h-8 bg-[#0068ff] rounded flex items-center justify-center hover:opacity-90 transition-opacity">
-                <MessageCircle size={16} className="text-[#fef5e4] fill-current" />
+              <a href="#" className="w-8 h-8 bg-[#0068ff] rounded flex items-center justify-center hover:opacity-90 transition-opacity overflow-hidden p-1">
+                <img src="https://s160-26-ava-talk.zadn.vn/36/16782d311b12da6d28daa13e343986b8.jpg?key=bjBxIEG9hBtFgz-AauOXZQ&time=1788531606" alt="Zalo" className="w-full h-full object-contain" />
               </a>
-              <a href="#" className="w-8 h-8 bg-[#1877f2] rounded flex items-center justify-center hover:opacity-90 transition-opacity">
-                <Facebook size={16} className="text-[#fef5e4] fill-current" />
+              <a href="#" className="w-8 h-8 bg-[#1877f2] rounded flex items-center justify-center hover:opacity-90 transition-opacity p-1.5">
+                <img src="/icons/facebook.svg" alt="Facebook" className="w-full h-full" />
               </a>
-              <a href="#" className="w-8 h-8 bg-[#ff0000] rounded flex items-center justify-center hover:opacity-90 transition-opacity">
-                <Youtube size={16} className="text-[#fef5e4] fill-current" />
+              <a href="#" className="w-8 h-8 bg-[#ff0000] rounded flex items-center justify-center hover:opacity-90 transition-opacity p-1.5">
+                <img src="/icons/youtube.svg" alt="YouTube" className="w-full h-full" />
               </a>
             </div>
-            <p className="text-[10px] font-semibold tracking-wider uppercase text-right opacity-90">
-              Bấm dô là ra link dẫn vào social
-            </p>
           </div>
         </FadeIn>
 

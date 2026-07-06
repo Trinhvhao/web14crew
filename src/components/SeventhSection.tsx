@@ -9,21 +9,21 @@ export default function SeventhSection() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const gridThumbnails = [
-    { id: 2, img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 3, img: 'https://images.unsplash.com/photo-1565610222536-ce1258bbf089?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 4, img: 'https://images.unsplash.com/photo-1555529733-0e670560f8e1?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 6, img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 7, img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 8, img: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 9, img: 'https://images.unsplash.com/photo-1506744626753-eda818311449?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 10, img: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 1, img: 'https://images.unsplash.com/photo-1504307651254-35680f356f58?auto=format&fit=crop&q=80&w=400&h=250' },
+    { id: 2, img: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=400&h=250' },
+    { id: 3, img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=400&h=250' },
+    { id: 4, img: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=400&h=250' },
+    { id: 6, img: 'https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&q=80&w=400&h=250' },
+    { id: 7, img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=400&h=250' },
+    { id: 8, img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=400&h=250' },
+    { id: 9, img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=400&h=250' },
+    { id: 10, img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=400&h=250' },
+    { id: 1, img: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=400&h=250' },
   ];
 
   const btsImages = [
-    'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=400&h=300',
-    'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=400&h=300',
-    'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=400&h=300'
+    'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=400&h=300',
+    'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=400&h=300',
+    'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400&h=300'
   ];
 
   return (
@@ -96,7 +96,7 @@ export default function SeventhSection() {
 
           {/* Main Clip */}
           <div data-cursor-text="PLAY" className="w-full aspect-[21/9] bg-gray-900 relative mb-8 shadow-2xl overflow-hidden border-[1px] border-white/10 group cursor-pointer z-10">
-             <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=1200&h=500" className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" alt="Main" />
+             <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1200&h=500" className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" alt="Main" />
              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <span className="text-[6rem] font-display font-bold text-[#ff9f43] drop-shadow-[3px_3px_0px_#f1c40f] leading-none opacity-90">
                   5
@@ -108,7 +108,7 @@ export default function SeventhSection() {
           <div className="flex gap-12 items-center justify-center">
             <div className="flex flex-col items-center">
               <div className="w-[280px] aspect-[16/9] bg-gray-800 overflow-hidden mb-3 shadow-lg border-[1px] border-white/10">
-                 <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=600&h=337" className="w-full h-full object-cover" alt="Hình BTS của Crew" />
+                 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600&h=337" className="w-full h-full object-cover" alt="Hình BTS của Crew" />
               </div>
               <span className="text-xl font-medium tracking-wide">Hình BTS của Crew</span>
             </div>
