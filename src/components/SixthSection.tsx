@@ -1,16 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { prodData } from '../data';
 import FadeIn from './FadeIn';
 import { ArrowDown, Play } from 'lucide-react';
 
-export default function SixthSection() {
-  const thumbnails = [
-    { id: 2, name: 'CAKE BANK', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 3, name: 'NHA KHOA DELIA', img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 4, name: 'ABCDE', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 5, name: 'KEEP & FLY', img: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 6, name: 'SUBARU VIETNAM', img: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 7, name: 'BESWIS', img: 'https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&q=80&w=400&h=250' }
-  ];
+export default function SixthSection() { 
+  const navigate = useNavigate();
+  const thumbnails = prodData;
+  
 
   return (
     <section className="relative flex flex-col pt-8 pb-3 px-8 z-10 w-full bg-[#f4efe6] text-black h-screen font-sans overflow-hidden shrink-0  ">
@@ -65,28 +62,19 @@ export default function SixthSection() {
             alt="Main Feature" 
             className="w-full h-full object-cover object-center" 
           />
-          <div className="absolute top-12 left-1/4 pointer-events-none">
-            <span className="text-[8rem] font-display font-bold text-[#ff9f43] drop-shadow-[4px_4px_0px_#f1c40f] opacity-90 leading-none">
-              1
-            </span>
-          </div>
+          
         </FadeIn>
 
         {/* Thumbnails row */}
         <FadeIn direction="left" delay={0.5} className="mt-8 overflow-hidden w-full pb-2 flex-shrink-0 h-[120px]">
           <div className="animate-marquee gap-5 h-full">
             {[...thumbnails, ...thumbnails].map((t, idx) => (
-              <div key={`${t.id}-${idx}`} className="relative w-[220px] h-full flex-shrink-0 group cursor-pointer overflow-hidden bg-gray-900 border border-transparent hover:border-brand-yellow transition-all">
+              <div key={`${t.id}-${idx}`} className="relative w-[220px] h-full flex-shrink-0 group cursor-pointer overflow-hidden bg-gray-900 border border-transparent hover:border-brand-yellow transition-all" onClick={() => { window.history.replaceState(null, '', '/#prod'); navigate(`/prod/${t.id}`); }}>
                 <img src={t.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt={t.name} />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
                 
-                {/* Number Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span className="text-[5rem] font-display font-bold text-[#ff9f43] drop-shadow-[2px_2px_0px_#f1c40f] leading-none opacity-80 group-hover:scale-110 transition-transform">
-                    {t.id}
-                  </span>
-                </div>
+                
                 <div className="absolute bottom-2 left-0 w-full text-center text-[#f4efe6] font-display text-[1.2rem] font-bold tracking-wider z-10 leading-tight uppercase px-4 drop-shadow-md">
                   {t.name}
                 </div>

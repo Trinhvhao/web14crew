@@ -1,17 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { tvcData } from '../data';
 import FadeIn from './FadeIn';
 import { ArrowDown, Play } from 'lucide-react';
 
-export default function SecondSection() {
-  const thumbnails = [
-    { id: 1, name: 'CAKE BANK', num: '1', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 3, name: 'VP BANK', num: '3', img: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 4, name: 'VIETNAM AIRLINE', num: '4', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 5, name: 'KEEP & FLY', num: '5', img: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 6, name: 'SUBARU VIETNAM', num: '6', img: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 7, name: 'BESWIS', num: '7', img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 8, name: '', num: '8', img: 'https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=400&h=250' }
-  ];
+export default function SecondSection() { 
+  const navigate = useNavigate();
+  const thumbnails = tvcData;
+  
 
   return (
     <section className="relative flex flex-col pt-8 pb-3 px-8 z-10 w-full bg-[#f4efe6] text-black h-screen font-sans overflow-hidden shrink-0  ">
@@ -53,9 +49,9 @@ export default function SecondSection() {
           </div>
           
           {/* Right Title */}
-          <div className="flex flex-col text-[#791220] font-display text-[1.5rem] leading-[1.1] tracking-tight pb-3">
-            <span className="font-normal opacity-90">TÊN DỰ ÁN</span>
-            <span className="font-bold">THÔNG ĐIỆP BRAND</span>
+          <div className="flex flex-col text-[#791220] font-display leading-[1] tracking-tight pb-3 uppercase text-right justify-end">
+            <span className="font-normal text-[1.8rem] opacity-90">TÊN DỰ ÁN</span>
+            <span className="font-bold text-[2.2rem]">THÔNG ĐIỆP BRAND</span>
           </div>
         </FadeIn>
 
@@ -75,7 +71,7 @@ export default function SecondSection() {
         <FadeIn direction="left" delay={0.5} className="mt-8 overflow-hidden w-full pb-2 flex-shrink-0 h-[120px]">
           <div className="animate-marquee gap-5 h-full">
             {[...thumbnails, ...thumbnails].map((t, idx) => (
-              <div key={`${t.id}-${idx}`} className="relative w-[220px] h-full flex-shrink-0 group cursor-pointer overflow-hidden bg-gray-900 border border-transparent hover:border-brand-yellow transition-all">
+              <div key={`${t.id}-${idx}`} className="relative w-[220px] h-full flex-shrink-0 group cursor-pointer overflow-hidden bg-gray-900 border border-transparent hover:border-brand-yellow transition-all" onClick={() => { window.history.replaceState(null, '', '/#showreel'); navigate(`/tvc/${t.id}`); }}>
                 <img src={t.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt={t.name} />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>

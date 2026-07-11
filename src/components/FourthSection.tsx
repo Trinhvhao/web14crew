@@ -1,17 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { corpData } from '../data';
 import FadeIn from './FadeIn';
 import { ArrowDown, Play } from 'lucide-react';
 
-export default function FourthSection() {
-  const thumbnails = [
-    { id: 1, name: 'SANAKY', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 2, name: 'PRODEZI LONG AN', img: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 3, name: 'VISING PACK', img: 'https://images.unsplash.com/photo-1565610222536-ce1258bbf089?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 4, name: 'TOSHIBA', img: 'https://images.unsplash.com/photo-1555529733-0e670560f8e1?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 5, name: 'AFI', img: 'https://images.unsplash.com/photo-1504307651254-35680f356f58?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 6, name: 'ITR', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400&h=250' },
-    { id: 7, name: 'OTHER', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=400&h=250' }
-  ];
+export default function FourthSection() { 
+  const navigate = useNavigate();
+  const thumbnails = corpData;
+  
 
   return (
     <section className="relative flex flex-col pt-8 pb-3 px-8 z-10 w-full bg-[#f4efe6] text-black h-screen font-sans overflow-hidden shrink-0  ">
@@ -53,9 +49,9 @@ export default function FourthSection() {
           </div>
           
           {/* Right Title */}
-          <div className="flex flex-col text-[#791220] font-display text-[1.5rem] leading-[1.1] tracking-tight pb-3">
-            <span className="font-normal opacity-90">CORPORATION FILM</span>
-            <span className="font-bold">SETIABECAMEX</span>
+          <div className="flex flex-col text-[#791220] font-display leading-[1] tracking-tight pb-3 uppercase text-right justify-end">
+            <span className="font-normal text-[1.8rem] opacity-90">CORPORATION FILM</span>
+            <span className="font-bold text-[2.2rem]">SETIABECAMEX</span>
           </div>
         </FadeIn>
 
@@ -72,7 +68,7 @@ export default function FourthSection() {
         <FadeIn direction="left" delay={0.5} className="mt-8 overflow-hidden w-full pb-2 flex-shrink-0 h-[120px]">
           <div className="animate-marquee gap-5 h-full">
             {[...thumbnails, ...thumbnails].map((t, idx) => (
-              <div key={`${t.id}-${idx}`} className="relative w-[220px] h-full flex-shrink-0 group cursor-pointer overflow-hidden bg-gray-900 border border-transparent hover:border-brand-yellow transition-all">
+              <div key={`${t.id}-${idx}`} className="relative w-[220px] h-full flex-shrink-0 group cursor-pointer overflow-hidden bg-gray-900 border border-transparent hover:border-brand-yellow transition-all" onClick={() => { window.history.replaceState(null, '', '/#corp'); navigate(`/corp/${t.id}`); }}>
                 <img src={t.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt={t.name} />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
