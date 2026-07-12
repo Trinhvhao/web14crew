@@ -1,6 +1,7 @@
 import React from 'react';
 import ParallaxImage from './ParallaxImage';
 import FadeIn from './FadeIn';
+import AnimatedCounter from './AnimatedCounter';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { ArrowDown, MonitorPlay, Volume2, Camera, Radio, MessageSquare, Users } from 'lucide-react';
@@ -31,9 +32,9 @@ export default function EighthSection() {
   ];
 
   const stats = [
-    { number: '10', label: 'SHOOTING YEAR' },
-    { number: '200+', label: 'PROJECT SCROP' },
-    { number: '100+', label: 'CLIENT BRAND' },
+    { value: 10, suffix: '', label: 'SHOOTING YEAR' },
+    { value: 200, suffix: '+', label: 'PROJECT SCROP' },
+    { value: 100, suffix: '+', label: 'CLIENT BRAND' },
   ];
 
   return (
@@ -103,7 +104,7 @@ export default function EighthSection() {
           {stats.map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center">
               <span className="text-[6rem] font-display font-normal leading-[0.7] text-[#f4efe6] tracking-tighter transform scale-y-[1.2] drop-shadow-lg mb-2">
-                {stat.number}
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </span>
               <span className="text-[1.8rem] font-display font-normal uppercase tracking-tight leading-none text-[#f4efe6] transform scale-y-[1.3] mt-8 drop-shadow-md">
                 {stat.label}

@@ -16,7 +16,9 @@ import SeventhSection from './components/SeventhSection';
 import EighthSection from './components/EighthSection';
 import NinthSection from './components/NinthSection';
 import TenthSection from './components/TenthSection';
+import EleventhSection from './components/EleventhSection';
 import CustomCursor from './components/CustomCursor';
+import LensTransition from './components/LensTransition';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -32,9 +34,9 @@ function ScrollToTop() {
         const element = document.querySelector(`[data-scroll-id="${hash.slice(1)}"]`);
         if (element) {
           // @ts-ignore
-          if (window.lenis) {
+          if (window.__customLenis && typeof window.__customLenis.scrollTo === 'function') {
             // @ts-ignore
-            window.lenis.scrollTo(element, { offset: 0, duration: 1.2, force: true });
+            window.__customLenis.scrollTo(element, { offset: 0, duration: 1.2, force: true });
           } else {
              const y = element.getBoundingClientRect().top + window.scrollY;
              window.scrollTo({ top: y, behavior: 'smooth' });
@@ -42,9 +44,9 @@ function ScrollToTop() {
         }
       } else {
          // @ts-ignore
-         if (window.lenis) {
+         if (window.__customLenis && typeof window.__customLenis.scrollTo === 'function') {
            // @ts-ignore
-           window.lenis.scrollTo(0, { duration: 1.2, force: true });
+           window.__customLenis.scrollTo(0, { duration: 1.2, force: true });
          } else {
            window.scrollTo({ top: 0, behavior: 'smooth' });
          }
@@ -64,9 +66,9 @@ function ScrollToTop() {
         const element = document.querySelector(`[data-scroll-id="${hash.slice(1)}"]`);
         if (element) {
           // @ts-ignore
-          if (window.lenis) {
+          if (window.__customLenis && typeof window.__customLenis.scrollTo === 'function') {
             // @ts-ignore
-            window.lenis.scrollTo(element, { offset: 0, immediate: true, force: true });
+            window.__customLenis.scrollTo(element, { offset: 0, immediate: true, force: true });
           } else {
             const y = element.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({ top: y, behavior: 'instant' });
@@ -77,9 +79,9 @@ function ScrollToTop() {
         }
       } else if (navType !== 'POP') {
         // @ts-ignore
-        if (window.lenis) {
+        if (window.__customLenis && typeof window.__customLenis.scrollTo === 'function') {
           // @ts-ignore
-          window.lenis.scrollTo(0, { immediate: true, force: true });
+          window.__customLenis.scrollTo(0, { immediate: true, force: true });
         } else {
           window.scrollTo({ top: 0, behavior: 'instant' });
         }
@@ -115,19 +117,19 @@ function InnerLayout({ children }: { children: React.ReactNode }) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     // @ts-ignore
-    window.lenis = lenis;
+    window.__customLenis = lenis;
     }
     requestAnimationFrame(raf);
     return () => {
       // @ts-ignore
-      window.lenis = undefined;
+      window.__customLenis = undefined;
       lenis.destroy();
     };
   }, []);
 
   return (
     <>
-      <div className="noise-bg text-[#fef5e4] font-sans relative selection:bg-brand-yellow selection:text-brand-red min-h-screen w-full overflow-x-hidden">
+      <div className="noise-bg text-[#fef5e4] font-sans relative selection:bg-brand-yellow selection:text-brand-red min-h-screen w-full ">
         <div 
           className="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] opacity-20 pointer-events-none mix-blend-screen z-0"
           style={{
@@ -267,6 +269,7 @@ function Home() {
       <div data-scroll-id="showreel"><SecondSection /></div>
       <div data-scroll-id="corp"><FourthSection /></div>
       <div data-scroll-id="prod"><SixthSection /></div>
+      <EleventhSection />
       <EighthSection />
       <NinthSection />
       <div data-scroll-id="contact"><TenthSection /></div>
@@ -280,12 +283,14 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Layout>
-        <Routes>
+        <LensTransition>
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tvc/:id" element={<ThirdSection />} />
           <Route path="/corp/:id" element={<FifthSection />} />
           <Route path="/prod/:id" element={<SeventhSection />} />
         </Routes>
+          </LensTransition>
       </Layout>
     </BrowserRouter>
   );
