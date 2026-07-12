@@ -34,7 +34,7 @@ export default function EleventhSection() {
 
   return (
     <section ref={containerRef} className="relative w-full bg-[#791220] text-[#f4efe6] h-[300vh]">
-      <div className="sticky top-0 h-screen w-full bg-[#791220] overflow-hidden flex flex-col justify-center items-center pt-24 pb-[17vh]">
+      <div className="sticky top-0 h-screen w-full bg-[#791220] overflow-hidden flex flex-col items-center pt-24 pb-[17vh]">
         
         {/* Background Noise/Texture */}
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none flex items-center justify-center">
@@ -42,21 +42,21 @@ export default function EleventhSection() {
         </div>
 
         {/* Absolute number */}
-        <div className="absolute top-8 right-12 text-[#f4efe6] text-3xl font-display font-medium z-20">
+        <div className="absolute top-24 right-12 text-[#f4efe6] text-3xl font-display font-medium z-20">
           06
         </div>
 
         {/* Header Text */}
-        <div className="absolute top-12 left-0 w-full z-20 pointer-events-none">
+        <div className="relative w-full z-20 pointer-events-none mb-6">
           <div className="max-w-[1440px] mx-auto px-24 w-full">
-            <h1 className="text-[3.5rem] font-display font-normal uppercase tracking-tighter leading-[0.75] transform scale-y-[1.3] scale-x-95 origin-bottom text-white drop-shadow-md">
+            <h1 className="text-[3.5rem] font-display font-normal uppercase tracking-tighter leading-[0.85] transform scale-y-[1.3] scale-x-95 origin-bottom text-white drop-shadow-md">
               BEHIND THE SCENES
             </h1>
           </div>
         </div>
 
         {/* Viewer Program Monitor */}
-        <div className="relative w-[min(88vw,1180px,calc((83vh-8rem)*16/9))] flex flex-col z-10">
+        <div className="relative w-[min(92vw,1260px,calc((74vh-8rem)*16/9))] flex flex-col z-10">
           {/* Top Bar */}
           <div className="flex justify-end items-end mb-2 px-1">
             <div className="text-[#F2C94C] font-mono text-xl tracking-wider flex items-center gap-2 drop-shadow-md">
