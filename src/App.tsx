@@ -165,15 +165,15 @@ function Home() {
             </nav>
             <div className="w-1/4 flex flex-col items-end">
               <div className="flex gap-2">
-                <a href="#" className="w-8 h-8 bg-[#1ab7ea] rounded flex items-center justify-center hover:opacity-90 transition-opacity">
-                  <SiVimeo size={16} className="text-[#fef5e4]" />
+                <a href="#" className="w-8 h-8 bg-[#1ab7ea] rounded flex items-center justify-center text-[#fef5e4] hover:opacity-90 transition-opacity">
+                  <SiVimeo size={16} />
                 </a>
                 
-                <a href="#" className="w-8 h-8 bg-[#1877f2] rounded flex items-center justify-center hover:opacity-90 transition-opacity">
-                  <SiFacebook size={16} className="text-[#fef5e4]" />
+                <a href="#" className="w-8 h-8 bg-[#1877f2] rounded flex items-center justify-center text-[#fef5e4] hover:opacity-90 transition-opacity">
+                  <SiFacebook size={16} />
                 </a>
-                <a href="#" className="w-8 h-8 bg-[#ff0000] rounded flex items-center justify-center hover:opacity-90 transition-opacity">
-                  <SiYoutube size={16} className="text-[#fef5e4]" />
+                <a href="#" className="w-8 h-8 bg-[#ff0000] rounded flex items-center justify-center text-[#fef5e4] hover:opacity-90 transition-opacity">
+                  <SiYoutube size={16} />
                 </a>
               </div>
             </div>

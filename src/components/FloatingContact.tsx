@@ -18,13 +18,13 @@ export default function FloatingContact() {
             className="mb-4"
           >
             <a
-              href="https://zalo.me/"
+              href="https://zalo.me/0777228660"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-white px-4 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-all group"
             >
-              <div className="w-10 h-10 bg-[#0068ff] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                <SiZalo size={20} className="text-white" />
+              <div className="w-10 h-10 bg-[#0068ff] rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                <SiZalo size={20} />
               </div>
               <span className="text-[#0068ff] font-sans font-bold text-sm uppercase tracking-wider pr-2">
                 Chat Zalo

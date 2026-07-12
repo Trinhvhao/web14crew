@@ -34,7 +34,7 @@ export default function EleventhSection() {
 
   return (
     <section ref={containerRef} className="relative w-full bg-[#791220] text-[#f4efe6] h-[300vh]">
-      <div className="sticky top-0 h-screen w-full bg-[#791220] overflow-hidden flex flex-col justify-center items-center">
+      <div className="sticky top-0 h-screen w-full bg-[#791220] overflow-hidden flex flex-col justify-center items-center pt-24 pb-[17vh]">
         
         {/* Background Noise/Texture */}
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none flex items-center justify-center">
@@ -56,14 +56,9 @@ export default function EleventhSection() {
         </div>
 
         {/* Viewer Program Monitor */}
-        <div className="relative w-[80vw] md:w-[60vw] lg:w-[40vw] max-w-[550px] flex flex-col z-10 mt-8">
+        <div className="relative w-[min(88vw,1180px,calc((83vh-8rem)*16/9))] flex flex-col z-10">
           {/* Top Bar */}
-          <div className="flex justify-between items-end mb-2 px-1">
-            <div className="text-[10px] text-[#F2C94C] font-mono tracking-widest uppercase opacity-80 flex gap-4">
-              <span>Viewer - Program</span>
-              <span className="hidden sm:inline">1920x1080</span>
-              <span className="hidden sm:inline">Fit</span>
-            </div>
+          <div className="flex justify-end items-end mb-2 px-1">
             <div className="text-[#F2C94C] font-mono text-xl tracking-wider flex items-center gap-2 drop-shadow-md">
               <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
               <motion.div>{timecodeStr}</motion.div>
