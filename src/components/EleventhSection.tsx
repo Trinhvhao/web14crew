@@ -47,14 +47,16 @@ export default function EleventhSection() {
         </div>
 
         {/* Header Text */}
-        <div className="absolute top-12 left-24 z-20 pointer-events-none">
-          <h1 className="text-[3rem] font-display font-normal uppercase tracking-tighter leading-[0.8] transform scale-y-[1.3] scale-x-[0.95] origin-left text-white drop-shadow-md">
-            BEHIND THE SCENES
-          </h1>
+        <div className="absolute top-12 left-0 w-full z-20 pointer-events-none">
+          <div className="max-w-[1440px] mx-auto px-24 w-full">
+            <h1 className="text-[3.5rem] font-display font-normal uppercase tracking-tighter leading-[0.75] transform scale-y-[1.3] scale-x-95 origin-bottom text-white drop-shadow-md">
+              BEHIND THE SCENES
+            </h1>
+          </div>
         </div>
 
         {/* Viewer Program Monitor */}
-        <div className="relative w-[90vw] md:w-[75vw] lg:w-[65vw] max-w-[1100px] flex flex-col z-10 mt-[-5vh]">
+        <div className="relative w-[80vw] md:w-[60vw] lg:w-[40vw] max-w-[550px] flex flex-col z-10 mt-8">
           {/* Top Bar */}
           <div className="flex justify-between items-end mb-2 px-1">
             <div className="text-[10px] text-[#F2C94C] font-mono tracking-widest uppercase opacity-80 flex gap-4">
